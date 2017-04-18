@@ -1,6 +1,6 @@
 package fr.pizzeria.exception;
 
-public class StockageException extends Exception {
+public class StockageException extends RuntimeException /*Exception -> RuntimeException */ {
 
 	public StockageException() {
 		super();
