@@ -1,14 +1,14 @@
 package fr.pizzeria.ihm;
 import java.util.List;
 
-import fr.pizzeria.dao.Stockage;
-import fr.pizzeria.dao.StockageList;
+import fr.pizzeria.dao.pizza.IPizzaDao;
+import fr.pizzeria.dao.pizza.PizzaDaoMemoire;
 import fr.pizzeria.model.Pizza;
 
 
 public class ListerPizzaOptionMenu extends OptionMenu {
 	
-	public ListerPizzaOptionMenu(Stockage stockage) {
+	public ListerPizzaOptionMenu(IPizzaDao stockage) {
 		super(stockage);
 		this.titre = "Liste des pizzas";
 	}

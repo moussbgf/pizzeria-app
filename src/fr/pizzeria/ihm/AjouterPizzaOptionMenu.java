@@ -1,7 +1,7 @@
 package fr.pizzeria.ihm;
 
-import fr.pizzeria.dao.Stockage;
-import fr.pizzeria.dao.StockageList;
+import fr.pizzeria.dao.pizza.IPizzaDao;
+import fr.pizzeria.dao.pizza.PizzaDaoMemoire;
 import fr.pizzeria.exception.SavePizzaException;
 import fr.pizzeria.exception.StockageException;
 import fr.pizzeria.model.CategoriePizza;
@@ -11,12 +11,12 @@ import java.util.concurrent.CancellationException;
 
 public class AjouterPizzaOptionMenu extends OptionMenu {
 
-	public AjouterPizzaOptionMenu(Stockage stockage) {
+	public AjouterPizzaOptionMenu(IPizzaDao stockage) {
 		super(stockage);
 		this.titre = "Ajouter une nouvelle pizza";
 	}
 
-	public AjouterPizzaOptionMenu(Stockage stockage, Scanner question) {
+	public AjouterPizzaOptionMenu(IPizzaDao stockage, Scanner question) {
 		super(stockage, question);
 		this.titre = "Ajouter une nouvelle pizza";
 	}

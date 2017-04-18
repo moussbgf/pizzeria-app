@@ -2,25 +2,25 @@ package fr.pizzeria.ihm;
 
 import java.util.Scanner;
 
-import fr.pizzeria.dao.Stockage;
-import fr.pizzeria.dao.StockageList;
+import fr.pizzeria.dao.pizza.IPizzaDao;
+import fr.pizzeria.dao.pizza.PizzaDaoMemoire;
 import fr.pizzeria.model.Pizza;
 
 public abstract class OptionMenu {
 	
-	protected Stockage stockage;
+	protected IPizzaDao stockage;
 	protected Scanner question;
 	protected String titre;
 
 	
 	
-	public OptionMenu(Stockage stockage) {
+	public OptionMenu(IPizzaDao stockage) {
 		
 		this.stockage = stockage;
 		
 	}
 	
-	public OptionMenu(fr.pizzeria.dao.Stockage stockage, Scanner question) {
+	public OptionMenu(fr.pizzeria.dao.pizza.IPizzaDao stockage, Scanner question) {
 		
 		this.stockage = stockage;
 		this.question = question;
@@ -36,11 +36,11 @@ public abstract class OptionMenu {
 
 	
 	
-	public Stockage getTabPizza() {
+	public IPizzaDao getTabPizza() {
 		return stockage;
 	}
 
-	public void setTabPizza(StockageList stockageTableau) {
+	public void setTabPizza(PizzaDaoMemoire stockageTableau) {
 		this.stockage = stockageTableau;
 	}
 

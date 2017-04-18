@@ -5,8 +5,12 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Scanner;
 
-import fr.pizzeria.dao.Stockage;
-import fr.pizzeria.dao.StockageList;
+import fr.pizzeria.dao.DaoFactoy;
+import fr.pizzeria.dao.DaoFichierFactory;
+import fr.pizzeria.dao.pizza.IPizzaDao;
+import fr.pizzeria.dao.pizza.PizzaDaoMemoire;
+import fr.pizzeria.dao.pizza.tab.IPizzaDaoTableau;
+import fr.pizzeria.dao.pizza.tab.PizzaDaoTableauImpl;
 import fr.pizzeria.ihm.*;
 
 public class PizzeriaAdminConsoleApp {
@@ -15,21 +19,27 @@ public class PizzeriaAdminConsoleApp {
 
 		Scanner question = new Scanner(System.in);
 		question.useLocale(Locale.US);
-
+		
+		
+		
 		Menu menu = new Menu();
+		
+		//Stock
+		
+		DaoFactoy daoFactoy = new DaoFichierFactory();
+		
+		
+		IPizzaDao pizzaDao = daoFactoy.getPizzaDao(); 
 
-		Stockage StockageList = new StockageList();
+		OptionMenu lister = new ListerPizzaOptionMenu(pizzaDao);
+		OptionMenu ajouter = new AjouterPizzaOptionMenu(pizzaDao, question);
+		OptionMenu mettreAJour = new ModifierPizzaOptionMenu(pizzaDao, question);
+		OptionMenu supprimer = new SupprimerPizzaOptionMenu(pizzaDao, question);
 
-		OptionMenu lister = new ListerPizzaOptionMenu(StockageList);
-		OptionMenu ajouter = new AjouterPizzaOptionMenu(StockageList, question);
-		OptionMenu mettreAJour = new ModifierPizzaOptionMenu(StockageList, question);
-		OptionMenu supprimer = new SupprimerPizzaOptionMenu(StockageList, question);
-		
-		Map<Integer,OptionMenu> actions;
-		
-		Map<Integer,OptionMenu> mapActions = new HashMap<Integer,OptionMenu>();
-		
-		
+		Map<Integer, OptionMenu> actions;
+
+		Map<Integer, OptionMenu> mapActions = new HashMap<Integer, OptionMenu>();
+
 		mapActions.put(0, lister);
 		mapActions.put(1, ajouter);
 		mapActions.put(2, mettreAJour);
@@ -54,9 +64,9 @@ public class PizzeriaAdminConsoleApp {
 
 				break;
 			case 2: // ajouter
-				
+
 				mapActions.get(0).execute();
-					
+
 				mapActions.get(1).execute();
 				break;
 			case 3: // modifier
@@ -64,7 +74,7 @@ public class PizzeriaAdminConsoleApp {
 				mapActions.get(0).execute();
 
 				mapActions.get(2).execute();
-					
+
 				break;
 			case 4: // supprimer
 
@@ -76,7 +86,7 @@ public class PizzeriaAdminConsoleApp {
 				break;
 			}
 		}
-		
+
 		question.close();
 
 	}

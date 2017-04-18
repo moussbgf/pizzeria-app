@@ -1,8 +1,9 @@
 package fr.pizzeria.ihm;
 
 import java.util.Scanner;
-import fr.pizzeria.dao.Stockage;
-import fr.pizzeria.dao.StockageList;
+
+import fr.pizzeria.dao.pizza.IPizzaDao;
+import fr.pizzeria.dao.pizza.PizzaDaoMemoire;
 import fr.pizzeria.exception.StockageException;
 import fr.pizzeria.exception.UpdatePizzaException;
 import fr.pizzeria.model.CategoriePizza;
@@ -10,12 +11,12 @@ import fr.pizzeria.model.Pizza;
 
 public class ModifierPizzaOptionMenu extends OptionMenu {
 
-	public ModifierPizzaOptionMenu(StockageList stockageTableau) {
+	public ModifierPizzaOptionMenu(PizzaDaoMemoire stockageTableau) {
 		super(stockageTableau);
 		this.titre = "Mettre à jour une pizza";
 	}
 
-	public ModifierPizzaOptionMenu(Stockage daoImpl, Scanner question) {
+	public ModifierPizzaOptionMenu(IPizzaDao daoImpl, Scanner question) {
 		super(daoImpl, question);
 		this.titre = "Mettre à jour une pizza";
 	}
