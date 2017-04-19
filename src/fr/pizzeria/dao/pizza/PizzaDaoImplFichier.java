@@ -34,7 +34,7 @@ public class PizzaDaoImplFichier implements IPizzaDao {
 					throw new StockageException(e);
 				}
 
-				return new Pizza(code, valueTab[0], Double.valueOf(valueTab[1]), CategoriePizza.valueOf(valueTab[2]));
+				return new Pizza(code, valueTab[1], Double.valueOf(valueTab[2]), CategoriePizza.valueOf(valueTab[3]));
 
 			}).collect(Collectors.toList());
 		} catch (IOException e) {
