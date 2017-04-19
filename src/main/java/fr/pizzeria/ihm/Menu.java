@@ -1,12 +1,17 @@
 package fr.pizzeria.ihm;
 
 import java.util.Map;
+import com.github.lalyos.jfiglet.FigletFont;
 
 public class Menu {
 	
 	private Map<Integer,OptionMenu> actions;
 
 	public void afficher() {
+		
+		String welcome = FigletFont.convertOneLine("Pizzeria App");
+	    System.out.println(welcome);
+		
 		
 		System.out.println("\n***** Pizzeria Administration *****");
 		System.out.println("1. Lister les pizzas");
