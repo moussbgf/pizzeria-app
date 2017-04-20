@@ -4,17 +4,20 @@ import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Scanner;
+import com.github.lalyos.jfiglet.FigletFont;
 import fr.pizzeria.dao.DaoFactoy;
 import fr.pizzeria.dao.DaoFichierFactory;
 import fr.pizzeria.dao.pizza.IPizzaDao;
-import fr.pizzeria.dao.pizza.PizzaDaoMemoire;
-import fr.pizzeria.dao.pizza.tab.IPizzaDaoTableau;
-import fr.pizzeria.dao.pizza.tab.PizzaDaoTableauImpl;
 import fr.pizzeria.ihm.*;
 
 public class PizzeriaAdminConsoleApp {
 
 	public static void main(String[] args) {
+		
+		// Affichage du welcome
+		String welcome = FigletFont.convertOneLine("Pizzeria App");
+	    System.out.println(welcome);
+		
 
 		Scanner question = new Scanner(System.in);
 		question.useLocale(Locale.US);

@@ -6,6 +6,10 @@ import fr.pizzeria.dao.pizza.PizzaDaoImplFichier;
 public class DaoFichierFactory implements DaoFactoy {
 
 	private static final String DATA_DIR = "data";
+	public static String getDataDir() {
+		return DATA_DIR;
+	}
+
 	private IPizzaDao pizzaDao = new PizzaDaoImplFichier();
 
 	@Override
@@ -14,4 +18,7 @@ public class DaoFichierFactory implements DaoFactoy {
 		return pizzaDao;
 
 	}
+	
+	
+	
 }

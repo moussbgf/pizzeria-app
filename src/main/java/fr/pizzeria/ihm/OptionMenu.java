@@ -4,7 +4,6 @@ import java.util.Scanner;
 
 import fr.pizzeria.dao.pizza.IPizzaDao;
 import fr.pizzeria.dao.pizza.PizzaDaoMemoire;
-import fr.pizzeria.model.Pizza;
 
 public abstract class OptionMenu {
 	

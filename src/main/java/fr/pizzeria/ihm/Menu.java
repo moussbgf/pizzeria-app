@@ -1,7 +1,6 @@
 package fr.pizzeria.ihm;
 
 import java.util.Map;
-import com.github.lalyos.jfiglet.FigletFont;
 
 public class Menu {
 	
@@ -9,8 +8,8 @@ public class Menu {
 
 	public void afficher() {
 		
-		String welcome = FigletFont.convertOneLine("Pizzeria App");
-	    System.out.println(welcome);
+//		String welcome = FigletFont.convertOneLine("Pizzeria App");
+//	    System.out.println(welcome);
 		
 		
 		System.out.println("\n***** Pizzeria Administration *****");

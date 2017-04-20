@@ -2,11 +2,12 @@ package fr.pizzeria.dao.pizza;
 
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 import java.util.stream.Collectors;
-
-import fr.pizzeria.dao.pizza.tab.IPizzaDaoTableau;
+import java.util.stream.Stream;
+import fr.pizzeria.dao.DaoFichierFactory;
 import fr.pizzeria.exception.*;
 import fr.pizzeria.model.CategoriePizza;
 import fr.pizzeria.model.Pizza;
@@ -16,19 +17,19 @@ public class PizzaDaoImplFichier implements IPizzaDao {
 	public PizzaDaoImplFichier() {
 		// TODO Auto-generated constructor stub
 	}
-	
+
 	@Override
 	public List<Pizza> findAllPizzas() {
 
 		List<Pizza> listPizzas;
-		try {
-			listPizzas = Files.list(Paths.get("data")).map(path -> {
+		try (Stream<Path> list = Files.list(Paths.get("data")); ) {
+			listPizzas = list.map(path -> {
 
 				String code = path.toFile().getName().replaceAll(".txt", "");
 
 				String[] valueTab;
-				try {
-					valueTab = Files.lines(path).findFirst().orElseThrow(() -> new StockageException("fichier vide"))
+				try (Stream<String> list2 = Files.lines(path)) {
+					valueTab = list2.findFirst().orElseThrow(() -> new StockageException("fichier vide"))
 							.split(";");
 				} catch (IOException e) {
 					throw new StockageException(e);
@@ -46,17 +47,48 @@ public class PizzaDaoImplFichier implements IPizzaDao {
 
 	@Override
 	public void saveNewPizza(Pizza pizza) throws SavePizzaException {
-		// TODO Auto-generated method stub
+
+		String pizzaData = "";
+
+		if (pizza.getCategoriePizza().equals(CategoriePizza.SANS_VIANDE)) {
+
+			pizzaData = pizza.getCode() + ";" + pizza.getNom() + ";" + pizza.getPrix() + ";" + "SANS_VIANDE";
+
+		} else {
+			pizzaData = pizza.getCode() + ";" + pizza.getNom() + ";" + pizza.getPrix() + ";"
+					+ pizza.getCategoriePizza().toString().toUpperCase() + "\n";
+		}
+
+		byte[] bytes = pizzaData.getBytes();
+
+		Path path = Paths.get(DaoFichierFactory.getDataDir()+ "\\" + pizza.getCode());
+
+		try {
+			Files.write(path, bytes);
+		} catch (IOException e) {
+			throw new SavePizzaException(e);
+		}
 	}
 
 	@Override
 	public void updatePizza(String codePizza, Pizza pizza) throws UpdatePizzaException {
-		// TODO Auto-generated method stub
+		
+		deletePizza(codePizza);
+		
+		saveNewPizza(pizza);
 	}
 
 	@Override
 	public void deletePizza(String codePizza) throws DeletePizzaException {
-		// TODO Auto-generated method stub
+
+		Path path = Paths.get(DaoFichierFactory.getDataDir() + "\\" + codePizza);
+
+		try {
+			Files.delete(path);
+		} catch (IOException e) {
+			throw new DeletePizzaException(e);
+		}
+
 	}
 
 	@Override

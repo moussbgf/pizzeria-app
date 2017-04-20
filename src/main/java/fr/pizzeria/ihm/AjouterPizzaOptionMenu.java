@@ -1,13 +1,10 @@
 package fr.pizzeria.ihm;
 
 import fr.pizzeria.dao.pizza.IPizzaDao;
-import fr.pizzeria.dao.pizza.PizzaDaoMemoire;
-import fr.pizzeria.exception.SavePizzaException;
 import fr.pizzeria.exception.StockageException;
 import fr.pizzeria.model.CategoriePizza;
 import fr.pizzeria.model.Pizza;
 import java.util.Scanner;
-import java.util.concurrent.CancellationException;
 
 public class AjouterPizzaOptionMenu extends OptionMenu {
 
