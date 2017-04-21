@@ -3,6 +3,7 @@ package fr.pizzeria.console;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
+import java.util.ResourceBundle;
 import java.util.Scanner;
 import com.github.lalyos.jfiglet.FigletFont;
 import fr.pizzeria.dao.api.DaoFactoy;
@@ -11,7 +12,17 @@ import fr.pizzeria.dao.fichier.DaoFichierFactory;
 
 public class PizzeriaAdminConsoleApp {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
+		
+		
+		/* fichier application.properties dans /resources */
+		ResourceBundle bundle = ResourceBundle.getBundle("application");
+		
+		String daoFactoryChemin = bundle.getString("dao.impl");
+		
+		Class<?> maClasse = Class.forName(daoFactoryChemin);
+		
+		DaoFactoy daoFactoy = (DaoFactoy) maClasse.newInstance();
 		
 		// Affichage du welcome
 		String welcome = FigletFont.convertOneLine("Pizzeria App");
@@ -26,10 +37,7 @@ public class PizzeriaAdminConsoleApp {
 		Menu menu = new Menu();
 
 		//Stock
-		
-		DaoFactoy daoFactoy = new DaoFichierFactory();
-		
-		
+
 		IPizzaDao pizzaDao = daoFactoy.getPizzaDao(); 
 
 		OptionMenu lister = new ListerPizzaOptionMenu(pizzaDao);
