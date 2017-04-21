@@ -1,0 +1,7 @@
+fr\pizzeria\dao\api\DaoFactoy.class
+fr\pizzeria\dao\api\exception\SavePizzaException.class
+fr\pizzeria\dao\api\exception\StockageException.class
+fr\pizzeria\dao\api\exception\UpdatePizzaException.class
+fr\pizzeria\dao\api\exception\DeletePizzaException.class
+fr\pizzeria\dao\api\IPizzaDao.class
+fr\pizzeria\dao\api\IPizzaDaoTableau.class

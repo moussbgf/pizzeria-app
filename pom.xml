@@ -1,16 +1,17 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
-
 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>dta</groupId>
 
-	<artifactId>pizzeria-console-app</artifactId>
+	<artifactId>pizzeria-app</artifactId>
 
 	<version>1.0.0</version>
+
+	<packaging>pom</packaging>
 
 	<build>
 		<finalName>pizzeria-app</finalName>
@@ -49,8 +50,8 @@ http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
 
 		<plugins>
-		
-		
+
+
 
 
 			<plugin>
@@ -69,8 +70,8 @@ http://maven.apache.org/xsd/maven-4.0.0.xsd">
 			</plugin>
 		</plugins>
 	</build>
-
-	<dependencies>
+<dependencyManagement>
+<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
@@ -84,9 +85,24 @@ http://maven.apache.org/xsd/maven-4.0.0.xsd">
 			<version>0.0.3</version>
 		</dependency>
 
+		<dependency>
+			<groupId>dta</groupId>
+			<artifactId>pizzeria-domain</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+		
+		
 	</dependencies>
+</dependencyManagement>
+	
 
-
+	<modules>
+		<module>pizzeria-console</module>
+		<module>pizzeria-dao-api</module>
+		<module>pizzeria-dao-memoire</module>
+		<module>pizzeria-dao-fichier</module>
+		<module>pizzeria-domain</module>
+	</modules>
 
 	<properties>
 		<!-- ici se trouveront les propriétés à ajouter -->

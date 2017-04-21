@@ -1,0 +1,3 @@
+fr\pizzeria\dao\memoire\PizzaDaoMemoire.class
+fr\pizzeria\dao\memoire\PizzaDaoTableauImpl.class
+fr\pizzeria\dao\memoire\DaoMemoireFactory.class
