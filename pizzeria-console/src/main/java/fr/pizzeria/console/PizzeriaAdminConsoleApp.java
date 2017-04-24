@@ -20,7 +20,9 @@ public class PizzeriaAdminConsoleApp {
 		
 		String daoFactoryChemin = bundle.getString("dao.impl");
 		
-		Class<?> maClasse = Class.forName(daoFactoryChemin);
+		System.out.println("Implementation : " + daoFactoryChemin);
+		
+		Class maClasse = Class.forName(daoFactoryChemin);
 		
 		DaoFactoy daoFactoy = (DaoFactoy) maClasse.newInstance();
 		

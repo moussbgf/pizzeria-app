@@ -12,16 +12,11 @@
 	<artifactId>pizzeria-console</artifactId>
 
 	<name>pizzeria-console</name>
-	<url>http://maven.apache.org</url>
 
 	<build>
-
-
-
 		<pluginManagement>
 			<plugins>
 				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-jar-plugin</artifactId>
 					<configuration>
 						<archive>
