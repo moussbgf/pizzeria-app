@@ -1,9 +1,8 @@
 package fr.pizzeria.console;
 
+import java.sql.SQLException;
 import java.util.Scanner;
-
 import fr.pizzeria.dao.api.IPizzaDao;
-import fr.pizzeria.dao.memoire.PizzaDaoMemoire;
 
 public abstract class OptionMenu {
 	
@@ -31,7 +30,7 @@ public abstract class OptionMenu {
 		
 	}
 	
-	public abstract void execute();
+	public abstract void execute() throws SQLException;
 
 	
 	
@@ -39,7 +38,7 @@ public abstract class OptionMenu {
 		return stockage;
 	}
 
-	public void setTabPizza(PizzaDaoMemoire stockageTableau) {
+	public void setTabPizza(IPizzaDao stockageTableau) {
 		this.stockage = stockageTableau;
 	}
 

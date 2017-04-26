@@ -1,15 +1,13 @@
-package fr.pizzeria.dao.pizza;
+package fr.pizzeria.dao.memoire;
 
-import static org.junit.Assert.*;
-
-import java.io.IOException;
 import java.util.List;
 
 import org.junit.Assert;
 import org.junit.Test;
 
-import fr.pizzeria.model.CategoriePizza;
-import fr.pizzeria.model.Pizza;
+import fr.pizzeria.dao.memoire.PizzaDaoMemoire;
+import fr.pizzeria.domain.CategoriePizza;
+import fr.pizzeria.domain.Pizza;
 
 public class TestPizzaDaoMemoire {
 

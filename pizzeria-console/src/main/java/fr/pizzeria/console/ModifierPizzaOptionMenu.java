@@ -4,13 +4,12 @@ import java.util.Scanner;
 
 import fr.pizzeria.dao.api.IPizzaDao;
 import fr.pizzeria.dao.api.exception.StockageException;
-import fr.pizzeria.dao.memoire.PizzaDaoMemoire;
 import fr.pizzeria.domain.CategoriePizza;
 import fr.pizzeria.domain.Pizza;
 
 public class ModifierPizzaOptionMenu extends OptionMenu {
 
-	public ModifierPizzaOptionMenu(PizzaDaoMemoire stockageTableau) {
+	public ModifierPizzaOptionMenu(IPizzaDao stockageTableau) {
 		super(stockageTableau);
 		this.titre = "Mettre à jour une pizza";
 	}
