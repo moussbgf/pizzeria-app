@@ -49,7 +49,7 @@
         </dependency>
       </dependencies>
       <properties>
-        <dao>fr.pizzeria.dao.memoire.DaoMemoryFactory</dao>
+        <dao>fr.pizzeria.dao.memoire.DaoMemoireFactory</dao>
       </properties>
     </profile>
     <profile>
@@ -63,6 +63,19 @@
       </dependencies>
       <properties>
         <dao>fr.pizzeria.dao.fichier.DaoFichierFactory</dao>
+      </properties>
+    </profile>
+    <profile>
+      <id>ddb</id>
+      <dependencies>
+        <dependency>
+          <groupId>dta</groupId>
+          <artifactId>pizzeria-dao-jdbc</artifactId>
+          <scope>runtime</scope>
+        </dependency>
+      </dependencies>
+      <properties>
+        <dao>org.pizzeria.dao.jdbc.DaoJdbcFactory</dao>
       </properties>
     </profile>
   </profiles>

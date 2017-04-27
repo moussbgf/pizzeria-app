@@ -1,9 +1,21 @@
 package fr.pizzeria.domain;
 
 import java.lang.reflect.Field;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Transient;
 
+@Entity
+@Table(name="pizza")
 public class Pizza {
 
+	@Id
+	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	private int id;
 	@ToString(TopUpperCase = true)
 	private String code;
@@ -11,14 +23,19 @@ public class Pizza {
 	private String nom;
 	@ToString(TopUpperCase = false)
 	private double prix;
+	@Enumerated(EnumType.STRING)
 	@ToString(TopUpperCase = true)
-	private CategoriePizza categoriePizza;
+	private CategoriePizza categorie;
+	@Transient
+	private String url_image;
+	@Transient
 	private static int nbrPizza = 0; // enlever ?
+	@Transient
 	private static int generateId = 0; // ID unique
 
 	public Pizza() {
-		this.id = generateId++;
-		nbrPizza++;
+//		this.id = generateId++;
+//		nbrPizza++;
 	}
 
 	public Pizza(String code, String nom, double prix, CategoriePizza categoriePizza) {
@@ -26,7 +43,7 @@ public class Pizza {
 		this.code = code;
 		this.nom = nom;
 		this.prix = prix;
-		this.categoriePizza = categoriePizza;
+		this.categorie = categoriePizza;
 		nbrPizza++;
 	}
 
@@ -71,11 +88,11 @@ public class Pizza {
 	}
 
 	public CategoriePizza getCategoriePizza() {
-		return categoriePizza;
+		return categorie;
 	}
 
 	public void setCategoriePizza(CategoriePizza categoriePizza) {
-		this.categoriePizza = categoriePizza;
+		this.categorie = categoriePizza;
 	}
 
 	@Override
@@ -102,7 +119,15 @@ public class Pizza {
 			}
 		}
 
-		return "Cette pizza est de catégorie : " + categoriePizza;
+		return "Cette pizza est de catégorie : " + categorie;
+	}
+
+	public String getUrl_image() {
+		return url_image;
+	}
+
+	public void setUrl_image(String url_image) {
+		this.url_image = url_image;
 	}
 
 }

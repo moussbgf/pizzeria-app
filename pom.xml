@@ -1,7 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
-http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>dta</groupId>
@@ -9,15 +8,16 @@ http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<version>1.0.0</version>
 	<packaging>pom</packaging>
 	<name>Pizzeria - App</name>
-	
-	
+
+
 	<properties>
 		<!-- ici se trouveront les propriétés à ajouter -->
 		<junit.version>4.12</junit.version>
 		<java.version>1.8</java.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<jfiglet.version>0.0.3</jfiglet.version>
-<!-- 		<dao>fr.pizzeria.dao.fichier.DaoFichierFactory</dao> -->
+		<jpa.version>1.0.0.Final</jpa.version>
+		<!-- <dao>fr.pizzeria.dao.fichier.DaoFichierFactory</dao> -->
 	</properties>
 
 	<build>
@@ -69,7 +69,7 @@ http://maven.apache.org/xsd/maven-4.0.0.xsd">
 				<groupId>junit</groupId>
 				<artifactId>junit</artifactId>
 				<version>${junit.version}</version>
-<!-- 				<scope>test</scope> -->
+				<!-- <scope>test</scope> -->
 			</dependency>
 
 			<dependency>
@@ -103,11 +103,23 @@ http://maven.apache.org/xsd/maven-4.0.0.xsd">
 				<artifactId>pizzeria-dao-memoire</artifactId>
 				<version>${project.version}</version>
 			</dependency>
-			
+
 			<dependency>
 				<groupId>dta</groupId>
 				<artifactId>pizzeria-dao-jdbc</artifactId>
 				<version>${project.version}</version>
+			</dependency>
+			
+			<dependency>
+				<groupId>dta</groupId>
+				<artifactId>pizza-dao-jpa</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.hibernate.javax.persistence</groupId>
+				<artifactId>hibernate-jpa-2.1-api</artifactId>
+				<version>${jpa.version}</version>
 			</dependency>
 
 		</dependencies>
@@ -120,6 +132,7 @@ http://maven.apache.org/xsd/maven-4.0.0.xsd">
 		<module>pizzeria-dao-fichier</module>
 		<module>pizzeria-domain</module>
 		<module>pizzeria-dao-jdbc</module>
+		<module>pizza-dao-jpa</module>
 	</modules>
 
 </project>
