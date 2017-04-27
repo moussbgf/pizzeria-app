@@ -48,15 +48,6 @@ public class PizzaDaoImplJdbc implements IPizzaDao {
 
 			ResultSet resultat = statement.executeQuery("select * from pizza");
 
-			// System.out.println("\t id" + "\t nom" + "\t prix");
-			//
-			// while (resultat.next()) {
-			//
-			// System.out.println("\t" + resultat.getInt("id") + "\t" +
-			// resultat.getString("nom") + "\t"
-			// + resultat.getDouble("prix") + "\n");
-			// }
-
 			 listPizzas = new ArrayList<Pizza>();
 
 			while (resultat.next()) {
@@ -125,11 +116,33 @@ public class PizzaDaoImplJdbc implements IPizzaDao {
 
 		Connection myConnection;
 		try {
+			
+			/* Ajouter une exception pour le as où la pizza n'existe pas */
+			
 			myConnection = DriverManager.getConnection(URL, USER, PWD);
 
 			PreparedStatement updatePizzaSt = myConnection
-					.prepareStatement("INSERT INTO pizza (code, nom, prix, categorie) values (?,?,?,?)");
+					.prepareStatement("UPDATE pizza set code = ?, nom = ?, prix = ?, categorie = ? where code = ?");
+			
+			updatePizzaSt.setString(1, pizza.getCode().toUpperCase());
+			updatePizzaSt.setString(2, pizza.getNom());
+			updatePizzaSt.setDouble(3, pizza.getPrix());
+			
+			CategoriePizza categorie = pizza.getCategoriePizza();
 
+			updatePizzaSt.setString(4, categorie.toString().toUpperCase());
+			
+			updatePizzaSt.setString(5, codePizza);
+			
+			if (updatePizzaSt.executeUpdate() == 0) {
+
+				System.out.println("La pizza n'a pas été ajouté !");
+
+			}
+			
+			updatePizzaSt.close();
+			myConnection.close();
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

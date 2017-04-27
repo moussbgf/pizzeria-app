@@ -16,7 +16,7 @@ public class TestPizzaDaoMemoire {
 
 		PizzaDaoMemoire pizzaDao = new PizzaDaoMemoire();
 
-		List listPizza = pizzaDao.findAllPizzas();
+		List<Pizza> listPizza = pizzaDao.findAllPizzas();
 
 		Assert.assertTrue("La liste ne doit pas être vide", listPizza.size() != 0);
 		Assert.assertEquals(8, listPizza.size());
@@ -33,7 +33,7 @@ public class TestPizzaDaoMemoire {
 		
 		pizzaDao.saveNewPizza(p);
 		
-		List listPizza = pizzaDao.findAllPizzas();
+		List<Pizza> listPizza = pizzaDao.findAllPizzas();
 		
 		Assert.assertEquals(9, listPizza.size());
 	}

@@ -16,73 +16,9 @@ public class PizzeriaAdminConsoleApp {
 	public static void main(String[] args)
 			throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException {
 
-		/*
-		 * *********************************************************************
-		 * **********
-		 */
-		/* JDBC */
-		/*
-		 * *********************************************************************
-		 * **********
-		 */
-
-//		Class.forName("com.mysql.jdbc.Driver");
-//
-//		String url = "jdbc:mysql://localhost:3306/pizzeria?useSSL=false";
-//		String user = "root";
-//		String pwd = "";
-//
-//		Connection myConnection = DriverManager.getConnection(url, user, pwd);
-//
-//		Statement statement = myConnection.createStatement();
-//
-//		ResultSet resultat = statement.executeQuery("select * from pizza");
-//		
-//		System.out.println("\t id"+ "\t nom" + "\t       prix");
-//
-//		while (resultat.next()) {
-//
-//			System.out.println("\t" + resultat.getInt("id") + "\t" + resultat.getString("nom") + "\t" + resultat.getDouble("prix") + "\n");
-//
-//		}
-//		
-//		System.out.println("*******************");
-//		
-//		PreparedStatement selectPizzaSt = myConnection.prepareStatement("select * from pizza where id = ?");
-//		
-//		selectPizzaSt.setInt(1, 2);
-//		
-//		ResultSet resultats = selectPizzaSt.executeQuery();
-//		
-//		while (resultat.next()) {
-//
-//			System.out.println(resultats.getInt(1));
-//
-//		}
-		
-		
-		
-		//PreparedStatement updatePizzaSt = myConnection.prepareStatement("update pizza set prix = 20 where id=? and nom=?");
-		
-		
-		
-//		System.out.println("*******************");
-//		System.out.println("*******************");
-//		
-//		System.out.println("\n\n");
-//		
-//		statement.close();
-//		
-//		resultat.close();
-//		
-//		selectPizzaSt.close();
-		
-		/*
-		 * *********************************************************************
-		 * **********
-		 */
-
 		/* fichier application.properties dans /resources */
+		/*configurer le profil pour choisir la factory à charger et le type de stockage choisi*/
+		/* 3 profils : 1) dev (memoire) 2) prod (fichier) 3) ddb (jdbc) */
 		ResourceBundle bundle = ResourceBundle.getBundle("application");
 
 		String daoFactoryChemin = bundle.getString("dao.impl");
@@ -113,7 +49,7 @@ public class PizzeriaAdminConsoleApp {
 		OptionMenu mettreAJour = new ModifierPizzaOptionMenu(pizzaDao, question);
 		OptionMenu supprimer = new SupprimerPizzaOptionMenu(pizzaDao, question);
 
-		Map<Integer, OptionMenu> actions;
+		//Map<Integer, OptionMenu> actions;
 
 		Map<Integer, OptionMenu> mapActions = new HashMap<Integer, OptionMenu>();
 

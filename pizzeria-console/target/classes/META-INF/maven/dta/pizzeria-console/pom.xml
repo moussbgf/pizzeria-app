@@ -48,36 +48,6 @@
 
 	</build>
 
-	<!-- <dependencies> -->
-	<!-- <dependency> -->
-	<!-- <groupId>junit</groupId> -->
-	<!-- <artifactId>junit</artifactId> -->
-	<!-- <version>3.8.1</version> -->
-	<!-- <scope>test</scope> -->
-	<!-- </dependency> -->
-	<!-- <dependency> -->
-	<!-- <groupId>com.github.lalyos</groupId> -->
-	<!-- <artifactId>jfiglet</artifactId> -->
-	<!-- <version>${jfiglet.version}</version> -->
-	<!-- </dependency> -->
-	<!-- <dependency> -->
-	<!-- <groupId>dta</groupId> -->
-	<!-- <artifactId>pizzeria-dao-api</artifactId> -->
-	<!-- </dependency> -->
-	<!-- <dependency> -->
-	<!-- <groupId>dta</groupId> -->
-	<!-- <artifactId>pizzeria-dao-fichier</artifactId> -->
-	<!-- </dependency> -->
-	<!-- <dependency> -->
-	<!-- <groupId>dta</groupId> -->
-	<!-- <artifactId>pizzeria-dao-memoire</artifactId> -->
-	<!-- </dependency> -->
-	<!-- <dependency> -->
-	<!-- <groupId>dta</groupId> -->
-	<!-- <artifactId>pizzeria-domain</artifactId> -->
-	<!-- </dependency> -->
-	<!-- </dependencies> -->
-
 	<dependencies>
 		<dependency>
 			<groupId>dta</groupId>
@@ -139,11 +109,24 @@
 				</dependency>
 			</dependencies>
 		</profile>
+		<profile>
+			<id>ddb</id>
+			<properties>
+				<dao>org.pizzeria.dao.jdbc.DaoJdbcFactory</dao>
+			</properties>
+			<dependencies>
+				<dependency>
+					<groupId>dta</groupId>
+					<artifactId>pizzeria-dao-jdbc</artifactId>
+					<scope>runtime</scope>
+				</dependency>
+			</dependencies>
+		</profile>
 	</profiles>
 
-<!-- 	<properties> -->
-<!-- 	<dao>fr.pizzeria.dao.fichier.DaoFichierFactory</dao> -->
-<!-- 	</properties> -->
+	<!-- <properties> -->
+	<!-- <dao>fr.pizzeria.dao.fichier.DaoFichierFactory</dao> -->
+	<!-- </properties> -->
 
 
 </project>
