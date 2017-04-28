@@ -1,6 +1,8 @@
 package fr.pizzeria.domain;
 
 import java.lang.reflect.Field;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -16,10 +18,11 @@ public class Pizza {
 
 	@Id
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
-	private int id;
+	private Integer id;
 	@ToString(TopUpperCase = true)
 	private String code;
 	@ToString(TopUpperCase = false)
+	@Column(name="nom")
 	private String nom;
 	@ToString(TopUpperCase = false)
 	private double prix;

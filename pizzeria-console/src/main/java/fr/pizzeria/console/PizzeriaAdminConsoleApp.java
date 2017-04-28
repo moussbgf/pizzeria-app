@@ -8,6 +8,8 @@ import java.util.ResourceBundle;
 import java.util.Scanner;
 import java.util.logging.Level;
 
+import javax.persistence.Persistence;
+
 import com.github.lalyos.jfiglet.FigletFont;
 import fr.pizzeria.dao.api.DaoFactoy;
 import fr.pizzeria.dao.api.IPizzaDao;
@@ -19,6 +21,9 @@ public class PizzeriaAdminConsoleApp {
 			throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException {
 		
 		java.util.logging.Logger.getLogger("org.hibernate").setLevel(Level.SEVERE);
+		
+		// geenration schema jpa
+		//Persistence.generateSchema("samplePU", null);
 		
 		/* fichier application.properties dans /resources */
 		/*configurer le profil pour choisir la factory à charger et le type de stockage choisi*/
