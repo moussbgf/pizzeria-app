@@ -8,7 +8,7 @@
 		<class>fr.pizzeria.domain.Client</class>
 		<class>fr.pizzeria.domain.Livreur</class>
 		<class>fr.pizzeria.domain.Commande</class>
-		<class>fr.pizzeria.domain.CommandePizzaId</class>
+		<class>fr.pizzeria.domain.CommandePizza</class>
 		<properties>
 <!-- 			<property name="javax.persistence.schema-generation.database.action" -->
 <!-- 				value="drop-and-create" /> -->

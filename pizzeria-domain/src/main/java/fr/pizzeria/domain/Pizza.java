@@ -1,6 +1,7 @@
 package fr.pizzeria.domain;
 
 import java.lang.reflect.Field;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,36 +10,49 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
 @Entity
-@Table(name="pizza")
+@Table(name = "pizza")
 public class Pizza {
 
 	@Id
-	@GeneratedValue (strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+	
 	@ToString(TopUpperCase = true)
 	private String code;
+	
 	@ToString(TopUpperCase = false)
-	@Column(name="nom")
+	@Column(name = "nom")
 	private String nom;
+	
 	@ToString(TopUpperCase = false)
 	private double prix;
+	
 	@Enumerated(EnumType.STRING)
 	@ToString(TopUpperCase = true)
 	private CategoriePizza categorie;
+	
+	@OneToMany
+	@JoinColumn(name="id_pizza")
+	private Set<CommandePizza> cmdPizza;
+	
 	@Transient
 	private String url_image;
+	
 	@Transient
 	private static int nbrPizza = 0; // enlever ?
+	
 	@Transient
 	private static int generateId = 0; // ID unique
 
 	public Pizza() {
-//		this.id = generateId++;
-//		nbrPizza++;
+		// this.id = generateId++;
+		// nbrPizza++;
 	}
 
 	public Pizza(String code, String nom, double prix, CategoriePizza categoriePizza) {
@@ -48,6 +62,26 @@ public class Pizza {
 		this.prix = prix;
 		this.categorie = categoriePizza;
 		nbrPizza++;
+	}
+
+	public CategoriePizza getCategorie() {
+		return categorie;
+	}
+
+	public void setCategorie(CategoriePizza categorie) {
+		this.categorie = categorie;
+	}
+
+	public Set<CommandePizza> getCmdPizza() {
+		return cmdPizza;
+	}
+
+	public void setCmdPizza(Set<CommandePizza> cmdPizza) {
+		this.cmdPizza = cmdPizza;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	public static int getNbrPizza() {

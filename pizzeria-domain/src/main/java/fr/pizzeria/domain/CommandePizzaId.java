@@ -1,11 +1,14 @@
 package fr.pizzeria.domain;
 
+import java.io.Serializable;
+
 import javax.persistence.Embeddable;
 
 @Embeddable
-public class CommandePizzaId {
+public class CommandePizzaId implements Serializable {
 	
 //	@Column(name="id_commadne")
+	
 	private int id_commande;
 //	@Column(name="id_pizza")
 	private int id_pizza;
