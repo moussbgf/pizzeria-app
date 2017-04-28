@@ -3,7 +3,7 @@ package fr.pizzeria.console;
 import java.util.Scanner;
 
 import fr.pizzeria.dao.api.IPizzaDao;
-import fr.pizzeria.dao.api.exception.StockageException;
+import fr.pizzeria.dao.api.exception.pizza.StockageException;
 
 public class SupprimerPizzaOptionMenu extends OptionMenu {
 

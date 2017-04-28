@@ -10,7 +10,7 @@ import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 
 import fr.pizzeria.dao.api.IPizzaDao;
-import fr.pizzeria.dao.api.exception.StockageException;
+import fr.pizzeria.dao.api.exception.pizza.StockageException;
 import fr.pizzeria.domain.Pizza;
 
 public class PizzaDaoJpa implements IPizzaDao {

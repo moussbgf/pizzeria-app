@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import fr.pizzeria.dao.api.IPizzaDao;
-import fr.pizzeria.dao.api.exception.DeletePizzaException;
-import fr.pizzeria.dao.api.exception.SavePizzaException;
-import fr.pizzeria.dao.api.exception.UpdatePizzaException;
+import fr.pizzeria.dao.api.exception.pizza.DeletePizzaException;
+import fr.pizzeria.dao.api.exception.pizza.SavePizzaException;
+import fr.pizzeria.dao.api.exception.pizza.UpdatePizzaException;
 import fr.pizzeria.domain.CategoriePizza;
 import fr.pizzeria.domain.Pizza;
 

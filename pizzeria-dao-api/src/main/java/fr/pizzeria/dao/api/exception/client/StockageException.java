@@ -1,4 +1,4 @@
-package fr.pizzeria.dao.api.exception;
+package fr.pizzeria.dao.api.exception.client;
 
 public class StockageException extends RuntimeException /*Exception -> RuntimeException */ {
 

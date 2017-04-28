@@ -1,7 +1,7 @@
 package fr.pizzeria.dao.memoire;
 
 import fr.pizzeria.dao.api.IPizzaDaoTableau;
-import fr.pizzeria.dao.api.exception.UpdatePizzaException;
+import fr.pizzeria.dao.api.exception.pizza.UpdatePizzaException;
 import fr.pizzeria.domain.CategoriePizza;
 import fr.pizzeria.domain.Pizza;
 

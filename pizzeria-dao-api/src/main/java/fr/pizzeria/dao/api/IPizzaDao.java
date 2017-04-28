@@ -1,7 +1,8 @@
 package fr.pizzeria.dao.api;
 
 import java.util.List;
-import fr.pizzeria.dao.api.exception.StockageException;
+
+import fr.pizzeria.dao.api.exception.pizza.StockageException;
 import fr.pizzeria.domain.Pizza;
 
 public interface IPizzaDao {
@@ -15,7 +16,8 @@ public interface IPizzaDao {
 	void updatePizza(String codePizza, Pizza pizza) throws StockageException;
 
 	void deletePizza(String codePizza) throws StockageException;
-
+	
+	//à supprimer ?
 	int existPizza(String codeATester);
 
 }

@@ -1,4 +1,4 @@
-package fr.pizzeria.dao.api.exception;
+package fr.pizzeria.dao.api.exception.pizza;
 
 public class UpdatePizzaException extends StockageException {
 
